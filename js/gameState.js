@@ -1,13 +1,13 @@
 // gameState.js
 // Details the game state and the variables describing it
 
-const game = {
+export const game = {
     // Current life
     life: {
         ageInDays: 6570,
         money: 1000,
         health: 100,
-        job: null
+        job: null,
         education: "none"
     },
 

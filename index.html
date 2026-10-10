@@ -23,7 +23,31 @@
 				<div class="col-md-12">
 					<div class="row">
 						<div class="col-md-2">
-							<span id="age">18</span>
+							<div id="statistics" class="stats-grid">
+								<div class="stats-heading">Statistics</div>
+
+								<div id="age-stat" class="stat-row">
+									<span class="stat-label">Age:</span>
+									<span id="age" class="stat-value">18</span>
+								</div>
+
+								<div id="money-stat" class="stat-row">
+									<span class="stat-label">Cash:</span>
+									<span id="money" class="stat-value">$1000</span>
+								</div>
+
+								<div id="health-stat" class="stat-row hidden">
+									<span class="stat-label">Health:</span>
+									<span id="health" class="stat-value">Normal</span>
+								</div>
+
+								<div id="education-stat" class="stat-row">
+									<span class="stat-label">Education</span>
+									<span id="education" class="stat-value">High School</span>
+								</div>
+							</div>
+
+
 						</div>
 						<div class="col-md-8">
 							<div class="row">
@@ -74,6 +98,6 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

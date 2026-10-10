@@ -1,1 +1,29 @@
-# Empty CSS file for your own CSS
+.hidden {
+    display: none !important;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.stats-heading {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    column-gap: 8px;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    text-align: left;
+}
+
+.stat-value {
+    text-align: left;
+}
