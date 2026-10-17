@@ -1,103 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Bootstrap 4, from LayoutIt!</title>
-
-    <meta name="description" content="Source code generated using layoutit.com">
-    <meta name="author" content="LayoutIt!">
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>LoopOfALifetime</title>
     <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <main class="game">
+        <header class="game-header">
+            <h1>Loop Of A Lifetime</h1>
+            <p>Status: <span id="status">Paused</span></p>
 
-  </head>
-  <body>
+            <button id="run-button" type="button">Run</button>
+            <button id="pause-button" type="button">Pause</button>
+        </header>
 
-    <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="col-md-2">
-							<div id="statistics" class="stats-grid">
-								<div class="stats-heading">Statistics</div>
+        <section class="statistics">
+            <h2>Statistics</h2>
+            <p>Age: <span id="age">18</span></p>
+            <p>Cash: $<span id="money">1000</span></p>
+            <p>Job: <span id="job">None</span></p>
+            <p>Education: <span id="education">High School</span></p>
+            <p>Smartness: <span id="smartness">0</span></p>
+            <p>Well Being: <span id="well-being">0</span></p>
+        </section>
 
-								<div id="age-stat" class="stat-row">
-									<span class="stat-label">Age:</span>
-									<span id="age" class="stat-value">18</span>
-								</div>
+        <section class="activities">
+            <h2>Activities</h2>
+            <button id="study-button" type="button">Study</button>
+            <button id="relax-button" type="button">Relax</button>
+        </section>
 
-								<div id="money-stat" class="stat-row">
-									<span class="stat-label">Cash:</span>
-									<span id="money" class="stat-value">$1000</span>
-								</div>
+        <section class="life-log">
+            <h2>Life Log</h2>
+            <p id="ticker">The game is ready.</p>
+        </section>
+    </main>
 
-								<div id="health-stat" class="stat-row hidden">
-									<span class="stat-label">Health:</span>
-									<span id="health" class="stat-value">Normal</span>
-								</div>
-
-								<div id="education-stat" class="stat-row">
-									<span class="stat-label">Education</span>
-									<span id="education" class="stat-value">High School</span>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="col-md-8">
-							<div class="row">
-								<div class="col-md-12">
-									<h3>
-										h3. Lorem ipsum dolor sit amet.
-									</h3>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-8">
-									<p>
-										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-									</p>
-								</div>
-								<div class="col-md-4">
-									<p>
-										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-									</p>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<h3>
-										h3. Lorem ipsum dolor sit amet.
-									</h3>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<p>
-								Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<h3>
-						h3. Lorem ipsum dolor sit amet.
-					</h3>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script type="module" src="js/main.js"></script>
-  </body>
+</body>
 </html>

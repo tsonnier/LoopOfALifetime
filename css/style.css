@@ -1,29 +1,44 @@
-.hidden {
-    display: none !important;
+* {
+    box-sizing: border-box;
 }
 
-.stats-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+body {
+    margin: 0;
+    padding: 1rem;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
 }
 
-.stats-heading {
-    font-weight: bold;
-    margin-bottom: 8px;
+.game {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.stat-row {
-    display: grid;
-    grid-template-columns: 90px minmax(0, 1fr);
-    column-gap: 8px;
-    margin-bottom: 4px;
+.game-header,
+.statistics,
+.activities,
+.life-log {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
-.stat-label {
-    text-align: left;
+button {
+    padding: 0.6rem 1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
 }
 
-.stat-value {
-    text-align: left;
+@media (max-width: 600px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .game-header,
+    .statistics,
+    .activites,
+    .life-log {
+        padding: 0.75rem;
+    }
 }

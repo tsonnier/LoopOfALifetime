@@ -1,0 +1,9 @@
+
+{
+  "name": "loop-of-a-lifetime",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
