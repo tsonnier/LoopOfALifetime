@@ -3,41 +3,64 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LoopOfALifetime</title>
+    <meta name="theme-color" content="#111923">
+    <title>Loop of a Lifetime</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <main class="game">
-        <header class="game-header">
-            <h1>Loop Of A Lifetime</h1>
-            <p>Status: <span id="status">Paused</span></p>
-
-            <button id="run-button" type="button">Run</button>
-            <button id="pause-button" type="button">Pause</button>
+        <header class="game-header panel">
+            <div class="brand-lockup">
+                <div class="loop-mark" aria-hidden="true"><span></span></div>
+                <div class="brand-copy">
+                    <p class="eyebrow">A LIFE, IN PROGRESS</p>
+                    <h1>Loop <span>of a Lifetime</span></h1>
+                    <p class="subtitle">Every day is a chance to become a little more.</p>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="status-line"><span class="status-indicator" aria-hidden="true"></span><span class="status-label">Simulation</span><span id="status" class="status-pill">Paused</span></div>
+                <div class="control-buttons" aria-label="Simulation controls">
+                    <button id="run-button" class="button button-primary" type="button"><span class="button-symbol" aria-hidden="true">▶</span> Run</button>
+                    <button id="pause-button" class="button button-secondary" type="button"><span class="button-symbol" aria-hidden="true">Ⅱ</span> Pause</button>
+                </div>
+            </div>
         </header>
 
-        <section class="statistics">
-            <h2>Statistics</h2>
-            <p>Age: <span id="age">18</span></p>
-            <p>Cash: $<span id="money">1000</span></p>
-            <p>Job: <span id="job">None</span></p>
-            <p>Education: <span id="education">High School</span></p>
-            <p>Smartness: <span id="smartness">0</span></p>
-            <p>Well Being: <span id="well-being">0</span></p>
-        </section>
+        <div class="dashboard-grid">
+            <div class="main-column">
+                <section class="statistics panel" aria-labelledby="statistics-title">
+                    <div class="section-heading"><div><p class="eyebrow">YOUR PRESENT</p><h2 id="statistics-title">Life at a glance</h2></div><span class="section-mark" aria-hidden="true">01</span></div>
+                    <div class="stat-grid">
+                        <article class="stat-card stat-card-featured"><span class="stat-label">Age</span><span class="stat-value" id="age">18</span><span class="stat-note">Time is your canvas</span><span class="stat-accent" aria-hidden="true"></span></article>
+                        <article class="stat-card"><span class="stat-label">Cash</span><span class="stat-value"><span class="value-prefix">$</span><span id="money">1000</span></span><span class="stat-note">Your current means</span></article>
+                        <article class="stat-card"><span class="stat-label">Smartness</span><span class="stat-value" id="smartness">0</span><span class="stat-note">Built through learning</span></article>
+                        <article class="stat-card"><span class="stat-label">Well-being</span><span class="stat-value" id="well-being">0</span><span class="stat-note">Care for yourself, too</span></article>
+                        <article class="stat-card"><span class="stat-label">Current work</span><span class="stat-value stat-value-small" id="job">None</span><span class="stat-note">Your path can still change</span></article>
+                        <article class="stat-card"><span class="stat-label">Education</span><span class="stat-value stat-value-small" id="education">High School</span><span class="stat-note">A foundation to build on</span></article>
+                    </div>
+                </section>
 
-        <section class="activities">
-            <h2>Activities</h2>
-            <button id="study-button" type="button">Study</button>
-            <button id="relax-button" type="button">Relax</button>
-        </section>
+                <section class="activities panel" aria-labelledby="activities-title">
+                    <div class="section-heading"><div><p class="eyebrow">CHOOSE YOUR NEXT STEP</p><h2 id="activities-title">Activities</h2></div><span class="section-mark" aria-hidden="true">02</span></div>
+                    <p class="section-description">Small choices add up. What will you invest in today?</p>
+                    <div class="activity-grid">
+                        <button id="study-button" class="activity-button activity-study" type="button"><span class="activity-icon" aria-hidden="true">↗</span><span class="activity-copy"><strong>Study</strong><small>Grow your smartness</small></span><span class="activity-arrow" aria-hidden="true">→</span></button>
+                        <button id="relax-button" class="activity-button activity-relax" type="button"><span class="activity-icon" aria-hidden="true">✳</span><span class="activity-copy"><strong>Relax</strong><small>Restore your well-being</small></span><span class="activity-arrow" aria-hidden="true">→</span></button>
+                        <button id="work-button" class="activity-button activity-work" type="button"><span class="activity-icon" aria-hidden="true">✳</span><span class="activity-copy"><strong>Work</strong><small>Earn your daily bread</small></span><span class="activity-arrow" aria-hidden="true">→</span></button>
+                    </div>
+                </section>
+            </div>
 
-        <section class="life-log">
-            <h2>Life Log</h2>
-            <p id="ticker">The game is ready.</p>
-        </section>
+            <aside class="life-log panel" aria-labelledby="life-log-title">
+                <div class="section-heading"><div><p class="eyebrow">THE STORY SO FAR</p><h2 id="life-log-title">Life log</h2></div><span class="log-live-dot" aria-hidden="true"></span></div>
+                <p class="section-description">A record of the choices moving your life forward.</p>
+                <div class="log-entry"><span class="log-marker" aria-hidden="true"></span><div class="log-entry-copy"><span class="log-entry-label">LATEST MOMENT</span><p id="ticker" aria-live="polite">The game is ready.</p></div></div>
+                <div class="log-footer"><span class="mini-loop" aria-hidden="true">↻</span><span>One life at a time.</span></div>
+            </aside>
+        </div>
+        <footer class="game-footer"><span><span class="footer-dot" aria-hidden="true"></span> YOUR STORY IS STILL UNFOLDING</span><span>LOOP OF A LIFETIME <span class="footer-divider">/</span> EARLY PROTOTYPE</span></footer>
     </main>
-
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -2,17 +2,19 @@
 // Entry point for the game
 
 import { game } from "./gameState.js";
+import { activities } from "./activities.js"
 import {
     addDays,
-    calculateAge, 
-    formatGameDate
+    calculateAge
 } from "./calendar.js";
 
 const ageDisplay = document.getElementById("age");
 const statusDisplay = document.getElementById("status");
 const ticker = document.getElementById("ticker");
-const smartnessDisplay = document.getElementById("smartness")
-const wellBeingDisplay = document.getElementById("well-being")
+const smartnessDisplay = document.getElementById("smartness");
+const wellBeingDisplay = document.getElementById("well-being");
+const moneyDisplay = document.getElementById("money");
+
 
 function updateDisplay() {
     const age = calculateAge(
@@ -28,6 +30,7 @@ function updateDisplay() {
     
     smartnessDisplay.textContent = game.life.smartness;
     wellBeingDisplay.textContent = game.life.wellBeing;
+    moneyDisplay.textContent = game.life.money;
 }
 
 function performActivity(activityName, durationInDays = 1) {
@@ -36,19 +39,19 @@ function performActivity(activityName, durationInDays = 1) {
         durationInDays
     );
 
-    // Apply the activity's effect.
-    if (activityName === "Study") {
-        game.life.smartness += 1;
-    } else if (activityName === "Relax") {
-        game.life.wellBeing += 1;
+    const activity = activities[activityName];
+    const effects = activity.effects;
+    for(const [effectName, effectValue] of Object.entries(effects)) {
+        game.life[effectName] += effectValue;
     }
+
 
     // Refresh the displayed age.
     updateDisplay();
 
     // Record the action in the Life Log.
     ticker.textContent =
-    `${activityName}: ${durationInDays} in-game day(s) passed.`;   
+    `${activity.name}: ${durationInDays} in-game day(s) passed.`
 }
 
 function advanceTime() {
@@ -80,14 +83,18 @@ document.getElementById("pause-button").addEventListener("click", () => {
 });
 
 document.getElementById("study-button").addEventListener("click", () => {
-        performActivity("Study");
+        performActivity("study");
     });
 
 document.getElementById("relax-button").addEventListener("click", () => {
-        performActivity("Relax");
+        performActivity("relax");
     });
 
-// Advance one in-game day per real-world number of milliseconds in game.tickTimeinMilli.
+document.getElementById("work-button").addEventListener("click", () => {
+        performActivity("work");
+    });
+
+// Advance one in-game day per real-world number of milliseconds in game.tickTimeinMs.
 setInterval(advanceTime, game.tickTimeInMs);
 
 updateDisplay();
