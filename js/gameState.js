@@ -23,7 +23,7 @@ export const game = {
     },
 
     // Simulation timing
-    tickLengthInDays: 30,
+    tickLengthInDays: 1,
     tickTimeInMs: 1000,
 
     running: false
