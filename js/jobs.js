@@ -1,18 +1,49 @@
-
-export const jobs
+export const jobs =
 {
-    id: "retail",
-    name: "Retail",
+    retail: 
+    {
+        id: "retail",
+        name: "Retail",
 
-    requirements: {
+        requirements: {
+        },
+
+        jobSearch: {
+            baseHours: 20,
+            modifiers: {
+                charisma: 0.05
+            }
+        },
+
+        pay: 20000,      
+        payPeriod: "year" 
     },
+    medResearchAssistant:
+    {
+        id: "medResearchAssistant",
+        name: "Medical Research Assistant",
 
-    jobSearch: {
-        baseHours: 20,
-        modifiers: {
-            charisma: 0.05
-        }
-    },
+        requirements:
+        {
+            education: "Bachelor's", 
+            research: 5, 
+            medicine: 5
+        },
 
-    salary: 20000
+        jobSearch: {
+            baseHours: 40,
+            modifiers: {
+                charisma: 0.05,
+                medicine: 0.1,
+                research: 0.1
+
+            }
+        },
+
+        pay: 50000,
+        payPeriod: "year"
+
+    }
+
 }
+

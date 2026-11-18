@@ -18,8 +18,8 @@ const moneyDisplay = document.getElementById("money");
 
 function updateDisplay() {
     const age = calculateAge(
-        game.life.birthDate,
-        game.life.currentDate
+        game.life.dates.birthDate,
+        game.life.dates.currentDate
     );
 
     ageDisplay.textContent =
@@ -28,30 +28,74 @@ function updateDisplay() {
     statusDisplay.textContent =
         game.running ? "Running" : "Paused";
     
-    smartnessDisplay.textContent = game.life.smartness;
-    wellBeingDisplay.textContent = game.life.wellBeing;
-    moneyDisplay.textContent = game.life.money;
+    smartnessDisplay.textContent = game.life.vitalStats.smartness;
+    wellBeingDisplay.textContent = game.life.vitalStats.wellBeing;
+    moneyDisplay.textContent = game.life.vitalStats.money;
+}
+
+function applyEffect(target, path, value) {
+    const properties = path.split(".");
+    const property = properties.pop();
+
+    const object = properties.reduce(
+        (current, key) => {
+            if (current === undefined || current === null) {
+                throw new Error(`Invalid effect path: ${path}`);
+            }
+
+            return current[key];
+        },
+        target
+    );
+
+    if (
+        object === undefined ||
+        object === null ||
+        typeof object[property] !== "number"
+    ) {
+        throw new Error(`Invalid effect target: ${path}`);
+    }
+
+    object[property] += value;
+
 }
 
 function performActivity(activityName, durationInDays = 1) {
-    game.life.currentDate = addDays(
-        game.life.currentDate,
+    game.life.dates.currentDate = addDays(
+        game.life.dates.currentDate,
         durationInDays
     );
 
     const activity = activities[activityName];
-    const effects = activity.effects;
-    for(const [effectName, effectValue] of Object.entries(effects)) {
-        game.life[effectName] += effectValue;
+    if (!activity) {
+        throw new Error(`Unknown activity: ${activityName}`);
     }
 
+    for (const [effectName, effectValue] of Object.entries(activity.effects)) {
+        applyEffect(game.life, effectName, effectValue);
+    }
 
-    // Refresh the displayed age.
     updateDisplay();
 
-    // Record the action in the Life Log.
     ticker.textContent =
-    `${activity.name}: ${durationInDays} in-game day(s) passed.`
+        `${activity.name}: ${durationInDays} in-game day(s) passed.`;
+}
+
+function simulateDay() {
+    if (!game.running) {
+        return;
+    }
+
+    // Process daily schedule.
+    // Calculate allocated Work hours.
+    // Process job-search activity.
+    // Apply other daily changes.
+    // Advance calendar.
+    // Update display.    
+    // Process the schedule.
+    // Apply daily changes.
+    // Update the display.
+    updateDisplay();
 }
 
 function advanceTime() {
@@ -59,15 +103,15 @@ function advanceTime() {
         return;
     }
 
-    game.life.currentDate = addDays(
-        game.life.currentDate,
+    game.life.dates.currentDate = addDays(
+        game.life.dates.currentDate,
         game.tickLengthInDays
     );
 
     updateDisplay();
 
     ticker.textContent =
-        `The date is now ${game.life.currentDate}.`;
+        `The date is now ${game.life.dates.currentDate}.`;
 }
 
 document.getElementById("run-button").addEventListener("click", () => {
