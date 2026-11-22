@@ -5,7 +5,8 @@ const REDISTRIBUTION_PRIORITY = [
     "other",
     "leisure",
     "study",
-    "work"];
+    "work"
+];
 
 
 export function getWeeklyHours(schedule) {

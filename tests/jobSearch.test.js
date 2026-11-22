@@ -8,14 +8,14 @@ import {
 
 const playerStatsHigh = {
     charisma: 10,
-    degree: "Bachelor's",
+    education: "Bachelor's",
     research: 7,
     medicine: 6    
 };
 
 const playerStatsLow = {
     charisma: 1,
-    degree: "High School"
+    education: "High School"
 };
 
 const tolerance = 0.0001;
@@ -50,7 +50,7 @@ test("Throws an error for an unknown job", () => {
 
 test("rejects medical research assistant when research is insufficient", () => {
     const stats = {
-        degree: "Bachelor's",
+        education: "Bachelor's",
         research: 4,
         medicine: 6
     };
