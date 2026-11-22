@@ -15,8 +15,7 @@ export const jobs =
             }
         },
 
-        pay: 20000,      
-        payPeriod: "year" 
+        hourlyPay: 10.00
     },
     medResearchAssistant:
     {
@@ -40,8 +39,7 @@ export const jobs =
             }
         },
 
-        pay: 50000,
-        payPeriod: "year"
+        hourlyPay: 25.00
 
     }
 
