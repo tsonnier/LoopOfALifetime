@@ -7,6 +7,27 @@ import {
     addDays,
     calculateAge
 } from "./calendar.js";
+import {
+    getWeeklyHours,
+    getDailySchedule, 
+    validateSchedule
+} from "./schedule.js";
+
+import {
+    study
+} from "./study.js";
+
+import {
+    jobs
+} from "./jobs.js";
+
+import {
+    findJob
+} from "./jobSearch.js";
+
+import {
+    work
+} from "./work.js"
 
 const ageDisplay = document.getElementById("age");
 const statusDisplay = document.getElementById("status");

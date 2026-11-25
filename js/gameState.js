@@ -17,6 +17,7 @@ export const game = {
         },
         job: {
             jobName: null,
+            searchingFor: null,
             jobSearchProgress: 0
         },
         education: "High School",
