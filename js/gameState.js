@@ -1,6 +1,9 @@
 // gameState.js
 // Details the game state and the variables describing it
 
+import {skills} from "./study.js";
+
+
 export const game = {
     // Current life
     life: {
@@ -12,7 +15,6 @@ export const game = {
         vitalStats: {
             money: 1000,
             health: 100,
-            smartness: 0,
             wellBeing: 0
         },
         job: {
@@ -32,7 +34,7 @@ export const game = {
         actionQueue: [],
         // Example Queue: 
         //  {
-        //      activity: "findJob",
+        //      action: "findJob",
         //      target: "retail"
         //   }
         studyPriorities: [],
@@ -41,7 +43,25 @@ export const game = {
         //      skill: "charisma",
         //      targetLevel: 5
         //  }
-        skills: []
+        skills: structuredClone(skills),
+        journal: {},
+        log: [
+            /*
+            {
+                id: 1,
+                date: "2000-01-01",
+                type: "memory",
+                description: "I remember dying..."
+            },
+            {
+                id: 2,
+                date: "2000-01-11",
+                type: "activity",
+                description: "Started looking for a job in Retail"
+            }
+
+            */
+        ]
     },
 
     // Things that survive the loop
@@ -58,3 +78,4 @@ export const game = {
 
     running: false
 };
+

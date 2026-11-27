@@ -3,7 +3,7 @@ export const jobs =
     retail: 
     {
         id: "retail",
-        name: "Retail",
+        name: "Retail Associate",
 
         requirements: {
         },
