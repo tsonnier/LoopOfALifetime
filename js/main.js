@@ -27,7 +27,13 @@ import {
 
 import {
     work
-} from "./work.js"
+} from "./work.js";
+
+import {
+    addAction,
+    removeAction,
+    processActionQueue
+} from "./actionQueue.js";
 
 const ageDisplay = document.getElementById("age");
 const statusDisplay = document.getElementById("status");
@@ -102,57 +108,6 @@ function performActivity(activityName, durationInDays = 1) {
         `${activity.name}: ${durationInDays} in-game day(s) passed.`;
 }
 
-function processActionQueue(life, availableHours) {
-    let remainingHours = availableHours;
-    let index = 0;
-
-    while (
-        index < life.actionQueue.length &&
-        remainingHours > 0
-    ) {
-        const action = life.actionQueue[index];
-
-        // Handle job searching.
-        if (action.activity === "findJob") {
-
-            // Already have this job. Remove completed action.
-            if (life.job.jobName === action.target) {
-                life.actionQueue.splice(index, 1);
-                continue;
-            }
-
-            const result = findJob(
-                action.target,
-                life,
-                remainingHours
-            );
-
-            remainingHours = result.hoursLeft;
-
-            // Remove completed action.
-            if (result.jobFound) {
-                life.actionQueue.splice(index, 1);
-                continue;
-            }
-
-            // No hours were consumed: this activity
-            // cannot currently make progress.
-            if (remainingHours > 0) {
-                index++;
-                continue;
-            }
-
-            // Hours exhausted. Continue tomorrow.
-            break;
-        }
-
-        throw new Error(
-            `Unknown queued activity: ${action.activity}`
-        );
-    }
-
-    return remainingHours;    
-}
 
 function simulateDay() {
     if (!game.running) {

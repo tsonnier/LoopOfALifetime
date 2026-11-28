@@ -34,7 +34,7 @@ export const game = {
         actionQueue: [],
         // Example Queue: 
         //  {
-        //      action: "findJob",
+        //      actionType: "findJob",
         //      target: "retail"
         //   }
         studyPriorities: [],

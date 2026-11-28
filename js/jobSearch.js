@@ -45,6 +45,8 @@ export function meetsJobRequirements(jobId, life) {
         throw new Error(`Unknown job: ${jobId}`);
     }
 
+
+
     for (const [requirement, value] of Object.entries(
         job.requirements
     )) {
@@ -60,6 +62,11 @@ export function meetsJobRequirements(jobId, life) {
                 return false;
             }
         }
+        else {
+            throw new Error(
+            `Unsupported requirement type: ${requirement}`
+    );
+        }
     }
 
     return true; // the player's stats have met all threshold
@@ -74,6 +81,7 @@ export function findJob(jobId, life, searchHours) {
 
     const returnObject = {
         jobFound: false,
+        eligible: false,
         hoursLeft: searchHours
     }
     
@@ -123,12 +131,14 @@ export function findJob(jobId, life, searchHours) {
         life.job.jobSearchProgress = 0;
 
         returnObject.jobFound = true;
+        returnObject.eligible = true;
         returnObject.hoursLeft = searchHours - remainingHours;
         return returnObject;
     }
     else { // Job not found yet, apply hours to the progress
         life.job.jobSearchProgress += searchHours;
         
+        returnObject.eligible = true;
         returnObject.hoursLeft = 0;
         return returnObject;
     }    
